@@ -7,13 +7,13 @@ class User {
     }
 }
 const william = new User('wcl@gmail.com', "william");
-william.city = "Jax"; // <=== I shouldnt be able to do this. Thus, readonly. 
+william.city = "Jax";
 //MORE REAL_WORLD CASE TO WRITE THIS
 class OtherUser {
     constructor(email, name) {
         this.email = email;
         this.name = name;
-        this._courseCount = 1;
+        this._courseCount = 1; //allows SubUser to inherit private classes from this class!
         this.city = "Jax";
     }
     deleteToken() {
@@ -31,4 +31,14 @@ class OtherUser {
         }
         this._courseCount = courseNum;
     }
-} //produces same code in the dist folder essentially. syntax sugar. cleaner to me than using 'this'
+}
+class SubUser extends OtherUser {
+    constructor() {
+        super(...arguments);
+        // this class cannot inherit private access modifiers from OtherUser.
+        this.isFamily = true;
+    }
+    changeCourseCount() {
+        this._courseCount = 4;
+    }
+}

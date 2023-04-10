@@ -9,14 +9,14 @@ class User {
 }
 
 const william = new User('wcl@gmail.com', "william")
-william.city = "Jax" // <=== I shouldnt be able to do this. Thus, readonly. 
+william.city = "Jax"  
 
 
 //MORE REAL_WORLD CASE TO WRITE THIS
 
 class OtherUser {
 
-    private _courseCount = 1
+    protected _courseCount = 1 //allows SubUser to inherit private classes from this class!
 
     readonly city: string = "Jax"
     constructor(
@@ -37,10 +37,18 @@ class OtherUser {
         return this._courseCount
     }
 
-    set courseCount(courseNum)/*: void */ { // will throw error if i set return type to void beacuse A 'set' accessor cannot have a return type annotation.  
+    set courseCount(courseNum) {   
         if (courseNum <= 1) {
             throw new Error("course count should be more than 1")
         }
         this._courseCount = courseNum
     }
-} //produces same code in the dist folder essentially. syntax sugar. cleaner to me than using 'this'
+} 
+
+class SubUser extends OtherUser {
+    // this class cannot inherit private access modifiers from OtherUser.
+    isFamily: boolean = true
+    changeCourseCount(){
+        this._courseCount = 4
+    }
+}
