@@ -13,21 +13,23 @@ class Facebook implements TakePhoto {
         public cameraMode: string,
         public filter: string,
         public burstMode: number
-    ) {}
+    ) { }
 } // correct, no errors
 
 interface Story {
     createStory(): void //or anything
 }
 
-class YouTube implements TakePhoto, Story{
+class YouTube implements TakePhoto, Story {
     constructor(
         public cameraMode: string,
         public filter: string,
         public burstMode: number
-    ) {}
+    ) { }
 
     createStory(): void {
         console.log("Story was created") // can do photos or whatever
     }
 }
+
+export { } //these are to prevent errors from other parts of the folder.

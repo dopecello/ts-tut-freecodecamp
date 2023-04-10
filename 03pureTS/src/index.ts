@@ -52,3 +52,5 @@ class SubUser extends OtherUser {
         this._courseCount = 4
     }
 }
+
+export {}
