@@ -1,6 +1,13 @@
-console.log("ts is here still")
+class User {
+    email: string;
+    name: string;
+    readonly city: string = "" //i wont get an error if I dont pass this into the constructor
+    constructor(email: string, name: string) {
+        this.email = email;
+        this.name = name
+    }
+}
 
-//tsc -w turns on watch mode nad with the outDir configuration in tsconfig.json, it automatically compiles
-// the changes into js within the dist folder on save
-
-//lite-server is a good package t get a live server without using live server or nodemon.
+const william = new User ('wcl@gmail.com',"william")
+william.city = "Jax" // <=== I shouldnt be able to do this. Thus, readonly. 
+ 
