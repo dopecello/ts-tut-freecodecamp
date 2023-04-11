@@ -19,7 +19,7 @@ class Instagram extends TakePhoto{
         public filter: string,
         public burst: number
         ) {
-            super(cameraMode, filter)
+            super(cameraMode, filter) //needs to be included 
         }
 
         getSepia(): void {
