@@ -26,5 +26,18 @@ const getMoreSearchProducts = (products) => {
     const myIndex = 4;
     return products[myIndex];
 }; // generic function but in an arrow function.
-//you will commonly get a <T,> syntax because sometimes this tag can be confused for HTML/JSX. In professional codebases
-//this is a common notation. It will not product an error.
+function anotherFunction(valOne, valTwo) {
+    return {
+        valOne,
+        valTwo
+    };
+}
+// could be a class that handles common cases
+class Sellable {
+    constructor() {
+        this.cart = [];
+    }
+    addtoCart(product) {
+        this.cart.push(product);
+    }
+}
